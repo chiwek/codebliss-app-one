@@ -1,5 +1,7 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
 
+
+gem 'mysql2', '0.3.18'
 
 gem 'shopify_app'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

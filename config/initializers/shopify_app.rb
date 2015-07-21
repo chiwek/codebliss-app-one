@@ -3,4 +3,5 @@ ShopifyApp.configure do |config|
   config.secret = "e6630cee3ba5b67d50c5cac3b19238b3"
   config.scope = "read_orders, read_products"
   config.embedded_app = true
+  #http://codebliss-app-one.herokuapp.com/
 end

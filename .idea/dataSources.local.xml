@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails app-one: development" uuid="57257458-f4e5-4bb6-991d-731d43b23b5b">
+      <secret-storage>memory</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails app-one: test" uuid="3c20dc76-ddcd-4547-bd1b-e6e480864d84">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails app-one: production" uuid="5cd2a075-803c-49bf-b483-3223dcf37c47">
+      <first-sync>true</first-sync>
+      <user-name>app-one</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfebdffadffadf87dfe5dfe4dfefdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
