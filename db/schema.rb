@@ -11,7 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714180225) do
+ActiveRecord::Schema.define(version: 20150720185426) do
+
+  create_table "shop_collections", force: :cascade do |t|
+    t.integer  "shops_id",           limit: 4
+    t.string   "name",               limit: 120, null: false
+    t.integer  "shop_collection_id", limit: 4,   null: false
+    t.datetime "checked_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shop_collections", ["shops_id"], name: "index_shop_collections_on_shops_id", using: :btree
+
+  create_table "shop_options", force: :cascade do |t|
+    t.integer "shops_id", limit: 4
+  end
+
+  add_index "shop_options", ["shops_id"], name: "index_shop_options_on_shops_id", using: :btree
+
+  create_table "shop_products", force: :cascade do |t|
+    t.integer  "shop_collections_id", limit: 4
+    t.string   "name",                limit: 120, null: false
+    t.integer  "shop_product_id",     limit: 4,   null: false
+    t.datetime "checked_at"
+    t.datetime "published_at"
+    t.integer  "order_num",           limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shop_products", ["shop_collections_id"], name: "index_shop_products_on_shop_collections_id", using: :btree
+
+  create_table "shop_stats", force: :cascade do |t|
+    t.integer  "shops_id",       limit: 4
+    t.integer  "execution_time", limit: 4,     null: false
+    t.string   "action_call",    limit: 255,   null: false
+    t.text     "log",            limit: 65535, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shop_stats", ["shops_id"], name: "index_shop_stats_on_shops_id", using: :btree
 
   create_table "shops", force: :cascade do |t|
     t.string   "shopify_domain", limit: 120, null: false
