@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :shop_collections
   mount ShopifyApp::Engine, at: '/'
   controller :sessions do
     get 'login' => :new, :as => :login

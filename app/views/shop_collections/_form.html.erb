@@ -1,0 +1,46 @@
+<%= form_for(@shop_collection) do |f| %>
+  <% if @shop_collection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop_collection.errors.count, "error") %> prohibited this shop_collection from being saved:</h2>
+
+      <ul>
+      <% @shop_collection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :shop_collection_id %><br>
+    <%= f.number_field :shop_collection_id %>
+    <%= f.collection_select :shop_collection_id, @shopify_collections,:id,:title, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :autofill %><br>
+    <%= f.check_box :autofill %>
+  </div>
+  <div class="field">
+    <%= f.label :sort_field %><br>
+    <%= f.text_field :sort_field %>
+  </div>
+  <div class="field">
+    <%= f.label :sort_order %><br>
+    <%= f.text_field :sort_order %>
+  </div>
+  <div class="field">
+    <%= f.label :instock_only %><br>
+    <%= f.check_box :instock_only %>
+  </div>
+  <div class="field">
+    <%= f.label :checked_at %><br>
+    <%= f.datetime_select :checked_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Shop Collections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Shop collection</th>
+      <th>Autofill</th>
+      <th>Sort field</th>
+      <th>Sort order</th>
+      <th>Instock only</th>
+      <th>Checked at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shop_collections.each do |shop_collection| %>
+      <tr>
+        <td><%= shop_collection.name %></td>
+        <td><%= shop_collection.shop_collection_id %></td>
+        <td><%= shop_collection.autofill %></td>
+        <td><%= shop_collection.sort_field %></td>
+        <td><%= shop_collection.sort_order %></td>
+        <td><%= shop_collection.instock_only %></td>
+        <td><%= shop_collection.checked_at %></td>
+        <td><%= link_to 'Show', shop_collection %></td>
+        <td><%= link_to 'Edit', edit_shop_collection_path(shop_collection) %></td>
+        <td><%= link_to 'Destroy', shop_collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shop collection', new_shop_collection_path %>

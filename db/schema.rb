@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720185426) do
+ActiveRecord::Schema.define(version: 20150723170927) do
 
   create_table "shop_collections", force: :cascade do |t|
     t.integer  "shops_id",           limit: 4
     t.string   "name",               limit: 120, null: false
     t.integer  "shop_collection_id", limit: 4,   null: false
+    t.boolean  "autofill",           limit: 1,   null: false
+    t.string   "sort_field",         limit: 255, null: false
+    t.string   "sort_order",         limit: 255, null: false
+    t.boolean  "instock_only",       limit: 1,   null: false
     t.datetime "checked_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "shop_collections", ["shops_id"], name: "index_shop_collections_on_shops_id", using: :btree

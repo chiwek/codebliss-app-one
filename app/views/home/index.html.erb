@@ -6,7 +6,18 @@
     });
   });
 </script>
-<h3>Products</h3>
+<h3>Product Categoriser & Custom Ordering</h3>
+
+<div id="app-wrapper">
+	<div id="app-main-menu">
+		<div class="menu-item active"><a href="/home">Home</a></div>
+		<div class="menu-item"><a href="/collections">Collections</a></div>
+		<div class="menu-item"><a href="/products">Products</a></div>
+		<div class="menu-item"><a href="/options">Options</a></div>		
+	</div>
+</div>
+
+
 <table>
   <tbody>
     <% @products.each do |product| %>

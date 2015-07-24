@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shop_collection.name %>
+</p>
+
+<p>
+  <strong>Shop collection:</strong>
+  <%= @shop_collection.shop_collection_id %>
+</p>
+
+<p>
+  <strong>Autofill:</strong>
+  <%= @shop_collection.autofill %>
+</p>
+
+<p>
+  <strong>Sort field:</strong>
+  <%= @shop_collection.sort_field %>
+</p>
+
+<p>
+  <strong>Sort order:</strong>
+  <%= @shop_collection.sort_order %>
+</p>
+
+<p>
+  <strong>Instock only:</strong>
+  <%= @shop_collection.instock_only %>
+</p>
+
+<p>
+  <strong>Checked at:</strong>
+  <%= @shop_collection.checked_at %>
+</p>
+
+<%= link_to 'Edit', edit_shop_collection_path(@shop_collection) %> |
+<%= link_to 'Back', shop_collections_path %>
