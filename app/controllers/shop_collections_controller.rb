@@ -6,6 +6,7 @@ class ShopCollectionsController < ApplicationController
   # GET /shop_collections.json
   def index
     @shop_collections = ShopCollection.all
+    puts Rails.env
   end
 
   # GET /shop_collections/1
@@ -15,9 +16,9 @@ class ShopCollectionsController < ApplicationController
 
   # GET /shop_collections/new
   def new
-    
-    puts ShopifyAPI::CustomCollection.find(:all)
-    @shopify_collections = [{"id" => 1, "title" => "Test 1", "handle" => "test-1"}, {"id" => 2, "title" => "Test 2", "handle" => "test-2"}]
+    sp = ShopifyWrapper.new
+    @shopify_collections = sp.api::CustomCollection.find(:all)
+    #@shopify_collections = [{"id" => 1, "title" => "Test 1", "handle" => "test-1"}, {"id" => 2, "title" => "Test 2", "handle" => "test-2"}]
     @shop_collection = ShopCollection.new
     
     

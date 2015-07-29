@@ -11,13 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :shop_collection_id %><br>
-    <%= f.select :shop_collection_id, @shopify_collections.map{|item| [item["title"], item["id"]] } %>
+    <%#= f.select :shop_collection_id, @shopify_collections.map{|item| [item["title"], item["id"]] } %>
+    <%= f.select :shop_collection_id, @shopify_collections.map{|item| [item.title, item.id] } %>
 
   </div>
   <div class="field">
@@ -36,7 +37,7 @@
     <%= f.label :instock_only %><br>
     <%= f.check_box :instock_only %>
   </div>
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :checked_at %><br>
     <%= f.datetime_select :checked_at %>
   </div>
