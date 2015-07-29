@@ -17,8 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :shop_collection_id %><br>
-    <%= f.number_field :shop_collection_id %>
-    <%= f.collection_select :shop_collection_id, @shopify_collections,:id,:title, include_blank: true %>
+    <%= f.select :shop_collection_id, @shopify_collections.map{|item| [item["title"], item["id"]] } %>
+
   </div>
   <div class="field">
     <%= f.label :autofill %><br>

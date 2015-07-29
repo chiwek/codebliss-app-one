@@ -1,6 +1,7 @@
 class ShopCollectionsController < ApplicationController
   before_action :set_shop_collection, only: [:show, :edit, :update, :destroy]
 
+
   # GET /shop_collections
   # GET /shop_collections.json
   def index
@@ -14,7 +15,9 @@ class ShopCollectionsController < ApplicationController
 
   # GET /shop_collections/new
   def new
-    @shopify_collections = ShopifyAPI::CustomCollection.find(:all)
+    
+    puts ShopifyAPI::CustomCollection.find(:all)
+    @shopify_collections = [{"id" => 1, "title" => "Test 1", "handle" => "test-1"}, {"id" => 2, "title" => "Test 2", "handle" => "test-2"}]
     @shop_collection = ShopCollection.new
     
     
