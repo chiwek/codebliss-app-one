@@ -7,12 +7,15 @@ class ShopCollectionsController < ApplicationController
   def index
     @shop_collections = ShopCollection.all
     puts Rails.env
+    
+    sp = ShopifyWrapper.new
+    @shopify_collections = sp.api::CustomCollection.find(:all)
   end
 
   # GET /shop_collections/1
   # GET /shop_collections/1.json
   def show
-    @shopify_collections = sp.api::CustomCollection.find(:all)
+    
   end
 
   # GET /shop_collections/new
