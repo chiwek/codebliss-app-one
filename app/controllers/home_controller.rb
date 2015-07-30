@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   layout 'embedded_app'
 
   def index
-    @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
+    sp = ShopifyWrapper.new
+    @products = sp.api::Product.find(:all, :params => {:limit => 10})
   end
 
 end
