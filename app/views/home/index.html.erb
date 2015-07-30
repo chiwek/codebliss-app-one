@@ -23,7 +23,15 @@
     <% @products.each do |product| %>
       <tr>
         <td>
-          <a href='https://<%="#{@shop_session.url}/admin/products/#{product.id}"%>' target="_blank"> <%= product.id %> </a>
+          <a href='https://<%="#{@shop_session.url}/admin/products/#{product.id}"%>' target="_blank"> <%= product.title %> </a>
+        </td>
+      </tr>
+    <% end %>
+    
+    <% @shopify_collections.each do |collection| %>
+      <tr>
+        <td>
+          <%= collection.title %>
         </td>
       </tr>
     <% end %>
