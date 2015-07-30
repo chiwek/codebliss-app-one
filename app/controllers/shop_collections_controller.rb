@@ -18,6 +18,7 @@ class ShopCollectionsController < ApplicationController
   def new
     sp = ShopifyWrapper.new
     @shopify_collections = sp.api::CustomCollection.find(:all)
+    puts @shopify_collections
     #@shopify_collections = [{"id" => 1, "title" => "Test 1", "handle" => "test-1"}, {"id" => 2, "title" => "Test 2", "handle" => "test-2"}]
     @shop_collection = ShopCollection.new
     
