@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   def index
     sp = ShopifyWrapper.new
     @products = sp.api::Product.find(:all, :params => {:limit => 10})
+    @shopify_collections = sp.api::CustomCollection.find(:all, :params => {:limit => 10})
   end
 
 end
