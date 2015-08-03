@@ -1,6 +1,8 @@
 class ShopCollectionsController < ApplicationController
   before_action :set_shop_collection, only: [:show, :edit, :update, :destroy]
-
+  before_action :login_again_if_different_shop
+  around_filter :shopify_session
+  layout 'embedded_app'
 
   # GET /shop_collections
   # GET /shop_collections.json
