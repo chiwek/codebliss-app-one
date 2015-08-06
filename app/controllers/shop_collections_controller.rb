@@ -7,7 +7,7 @@ class ShopCollectionsController < ApplicationController
   # GET /shop_collections
   # GET /shop_collections.json
   def index
-
+    @shop_collections = ShopCollection.all
   end
 
   # GET /shop_collections/1
