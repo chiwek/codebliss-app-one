@@ -6,34 +6,13 @@
     });
   });
 </script>
-<h3>Product Categoriser & Custom Ordering</h3>
+<h3>Product Categoriser & Custom Ordering App</h3>
 
 <div id="app-wrapper">
 	<div id="app-main-menu">
-		<div class="menu-item active"><a href="/home">Home</a></div>
-		<div class="menu-item"><a href="/shop_collections">Collections</a></div>
-		<div class="menu-item"><a href="/shop_products">Products</a></div>
-		<div class="menu-item"><a href="/shop_options">Options</a></div>		
+		<div class="menu-item active"><a href="#">Home</a></div>
+		<div class="menu-item"><a href="/shop_collections">Collections Setup</a></div>
+		<div class="menu-item"><a href="#">View Product stats</a></div>
+		<div class="menu-item"><a href="/preferences">Options</a></div>		
 	</div>
 </div>
-
-
-<table>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td>
-          <a href='https://<%="#{@shop_session.url}/admin/products/#{product.id}"%>' target="_blank"> <%= product.title %> </a>
-        </td>
-      </tr>
-    <% end %>
-    
-    <% @shopify_collections.each do |collection| %>
-      <tr>
-        <td>
-          <%= collection.title %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

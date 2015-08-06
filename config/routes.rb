@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'preferences/index'
+
+  get 'preferences/store'
+
   resources :shop_collections
   mount ShopifyApp::Engine, at: '/'
   controller :sessions do

@@ -7,13 +7,7 @@ class ShopCollectionsController < ApplicationController
   # GET /shop_collections
   # GET /shop_collections.json
   def index
-    puts "1"
-    @shop_collections = ShopCollection.all
-    puts "12"
-    sp = ShopifyWrapper.new
-    puts "123"
-    @shopify_collections = sp.api::CustomCollection.find(:all, :params => {:limit => 10})
-    puts "1234"
+
   end
 
   # GET /shop_collections/1
@@ -24,17 +18,12 @@ class ShopCollectionsController < ApplicationController
 
   # GET /shop_collections/new
   def new
-    sp = ShopifyWrapper.new
-    @shopify_collections = sp.api::CustomCollection.find(:all, :params => {:limit => 10})
-    
     @shop_collection = ShopCollection.new
-    
     
   end
 
   # GET /shop_collections/1/edit
   def edit
-    @shopify_collections = ShopifyAPI::CustomCollection.find(:all, :params => {:limit => 10})
     
   end
 
