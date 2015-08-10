@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   layout 'embedded_app'
 
   def index
-   init_payment
+   init_webhooks
    @charges = ShopifyAPI::RecurringApplicationChargeTest.all
       
   end
