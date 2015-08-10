@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'webhooks/uninstall'
+
   get 'preferences/index'
 
   get 'preferences/store'
