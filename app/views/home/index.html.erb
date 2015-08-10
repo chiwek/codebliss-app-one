@@ -16,3 +16,14 @@
 		<div class="menu-item"><a href="/preferences">Options</a></div>		
 	</div>
 </div>
+
+
+<div>
+<% @charges.each do |charge| %>
+	<br /><br />
+	NEW Charge
+	<br />
+    <%= debug charge %>
+<% end %>
+</div>
+    
