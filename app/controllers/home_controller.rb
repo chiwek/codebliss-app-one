@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
    init_webhooks
-   @charges = RecurringApplicationCharge.all      
+   #@charges = RecurringApplicationCharge.all      
   end
   
   def init_webhooks
