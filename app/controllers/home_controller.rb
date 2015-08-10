@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   layout 'embedded_app'
 
   def index
-   init_webhooks 
+   init_payment
+   init_webhooks   
   end
   
   def init_webhooks
@@ -17,4 +18,16 @@ class HomeController < ApplicationController
     end
   end 
 
+  def init_payment
+    begin
+      price = 20.0
+      plan_name = ShopifyAPI::Shop.current.plan_name
+      if plan_name == "basic" 
+        price = 10.0
+      end
+     ShopifyAPI::RecurringApplicationCharge.create({:name => "Standard Plan", :price => price, :trial_days => 7})
+    rescue => ex
+      puts ex.message    
+    end
+  end
 end
