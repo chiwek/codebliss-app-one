@@ -5,7 +5,8 @@ class HomeController < ApplicationController
 
   def index
    init_payment
-   init_webhooks   
+   @charges = init_webhooks
+      
   end
   
   def init_webhooks
@@ -20,7 +21,7 @@ class HomeController < ApplicationController
 
   def init_payment
     begin
-      @charges = ShopifyAPI::RecurringApplicationCharge.all
+      charges = ShopifyAPI::RecurringApplicationCharge.all
       /*
       price = 20.0
       plan_name = ShopifyAPI::Shop.current.plan_name
@@ -33,5 +34,6 @@ class HomeController < ApplicationController
     rescue => ex
       puts ex.message    
     end
+    charges
   end
 end
