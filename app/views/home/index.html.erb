@@ -17,3 +17,13 @@
 	</div>
 </div>
 
+
+<div>
+<% @charges.each do |charge| %>
+	<br /><br />
+	NEW Charge
+	<br />
+    <%= charge.activated_on %>
+<% end %>
+</div>
+    

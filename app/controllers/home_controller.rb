@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
    init_webhooks
-   #@charges = RecurringApplicationCharge.all      
+   @charges = ShopifyAPI::RecurringApplicationCharge.all
   end
   
   def init_webhooks
@@ -21,15 +21,16 @@ class HomeController < ApplicationController
   def init_payment
     begin
       charges = ShopifyAPI::RecurringApplicationCharge.all
-      /*
-      price = 20.0
-      plan_name = ShopifyAPI::Shop.current.plan_name
-      if plan_name == "basic" 
-        price = 10.0
-      end
-     charge = ShopifyAPI::RecurringApplicationCharge.create({:name => "Standard Plan", :price => price, :trial_days => 7, :test => true})
-     redirect_to(charge.confirmation_url)
-     */
+      
+      #price = 20.0
+      #plan_name = ShopifyAPI::Shop.current.plan_name
+      
+      #if plan_name == "basic" 
+      #  price = 10.0
+      #end
+      #charge = ShopifyAPI::RecurringApplicationCharge.create({:name => "Standard Plan", :price => price, :trial_days => 7, :test => true})
+      #redirect_to(charge.confirmation_url)
+     
     rescue => ex
       puts ex.message    
     end
