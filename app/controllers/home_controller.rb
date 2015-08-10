@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
    init_payment
-   @charges = init_webhooks
+   @charges = ShopifyAPI::RecurringApplicationCharge.all
       
   end
   
