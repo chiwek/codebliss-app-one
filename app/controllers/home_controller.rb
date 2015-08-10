@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
    init_payment
-   @charges = ShopifyAPI::RecurringApplicationCharge.all
+   @charges = ShopifyAPI::RecurringApplicationChargeTest.all
       
   end
   
