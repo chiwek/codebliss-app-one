@@ -4,14 +4,13 @@ class HomeController < ApplicationController
   layout 'embedded_app'
 
   def index
-    
+   init_webhooks 
   end
   
   def init_webhooks
     webhook = ShopifyAPI::Webhook.create(:format => "json", :topic => "app/uninstalled", :address => "http://#{DOMAIN_NAME}/webhooks/uninstall")
     raise "Webhook invalid: #{webhook.errors}" unless webhook.valid?
     
-    end
   end 
 
 end
