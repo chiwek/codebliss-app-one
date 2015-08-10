@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   layout 'embedded_app'
 
   def index
-   init_webhooks 
+    
   end
   
   def init_webhooks
