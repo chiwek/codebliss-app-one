@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
-  get 'webhooks/uninstall'
+  POST 'webhooks/uninstall'
 
   get 'preferences/index'
 
   get 'preferences/store'
+  
+  get 'home/'
 
   resources :shop_collections
   mount ShopifyApp::Engine, at: '/'

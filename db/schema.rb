@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(version: 20150720185426) do
   add_index "shop_stats", ["shops_id"], name: "index_shop_stats_on_shops_id", using: :btree
 
   create_table "shops", force: :cascade do |t|
-    t.string   "shopify_domain", limit: 120, null: false
-    t.string   "shopify_token",  limit: 120, null: false
+    t.string   "shopify_domain",              limit: 120, null: false
+    t.string   "shopify_token",               limit: 120, null: false
+    t.integer  "shopify_reccuring_charge_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
