@@ -52,7 +52,8 @@ class HomeController < ApplicationController
         if plan_name == "basic" 
           price = 10.0
         end
-        puts "Found plan -- " << price.to_s
+        
+        puts "Found plan"
         charge = ShopifyAPI::RecurringApplicationCharge.create({:name => "Standard Plan", :price => price, :trial_days => 7, :test => true, :return_url => "http://#{DOMAIN_NAME}/home/payed"})
         redirect_to(charge.confirmation_url)
       end     
