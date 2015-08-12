@@ -1,9 +1,10 @@
 class WebhooksController < ApplicationController
   def uninstall
     puts "uninstall fired"
-    
-    params.each do |key, val|
-      puts "key: " << key.to_s << ", val:" << val.to_s      
+    @charges = ShopifyAPI::RecurringApplicationCharge.all
+    @charges.each do |charge|
+      charge.delete
     end
+    
   end
 end
