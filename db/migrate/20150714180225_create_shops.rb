@@ -3,6 +3,7 @@ class CreateShops < ActiveRecord::Migration
     create_table :shops  do |t|
       t.string :shopify_domain, :limit => 120, null: false
       t.string :shopify_token, :limit => 120, null: false
+      t.integer :shopify_reccuring_charge_id
       t.timestamps
     end
 
