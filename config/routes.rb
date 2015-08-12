@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'preferences/store'
   
-  get 'home/'
+  get 'home/payed'
 
   resources :shop_collections
   mount ShopifyApp::Engine, at: '/'
