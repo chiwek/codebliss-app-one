@@ -40,15 +40,18 @@ class HomeController < ApplicationController
 
   def init_payment
     begin
+      puts "Starting the payment process"
       shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.shopify_domain)
-      if shop.shopify_reccuring_charge_id == nil
-              
+      puts "Found Shop"
+      if shop.shopify_reccuring_charge_id.nil? || shop.shopify_reccuring_charge_id.empty?
+        puts "Na payment yet, making it happen"              
         price = 20.0
         plan_name = ShopifyAPI::Shop.current.plan_name
         
         if plan_name == "basic" 
           price = 10.0
         end
+        puts "Found plan -- " << price.to_s
         charge = ShopifyAPI::RecurringApplicationCharge.create({:name => "Standard Plan", :price => price, :trial_days => 7, :test => true, :return_url => "http://#{DOMAIN_NAME}/home/payed"})
         redirect_to(charge.confirmation_url)
       end     
