@@ -43,6 +43,7 @@ class HomeController < ApplicationController
       puts "Starting the payment process"
       shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.domain)
       puts "Found Shop"
+      
       if shop.shopify_reccuring_charge_id.nil? || shop.shopify_reccuring_charge_id.empty?
         puts "Na payment yet, making it happen"              
         price = 20.0
