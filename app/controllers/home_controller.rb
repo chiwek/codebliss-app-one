@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     puts "Payed action started"
     charge = ShopifyAPI::RecurringApplicationCharge.find(params[:id])
     
-    shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.shopify_domain)
+    shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.domain)
     if charge.status == "accepted" || charge.status == "pending" 
       shop.shopify_reccuring_charge_id = params[:id]
       puts "Payed action accepted and saved"
@@ -41,7 +41,7 @@ class HomeController < ApplicationController
   def init_payment
     begin
       puts "Starting the payment process"
-      shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.shopify_domain)
+      shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.domain)
       puts "Found Shop"
       if shop.shopify_reccuring_charge_id.nil? || shop.shopify_reccuring_charge_id.empty?
         puts "Na payment yet, making it happen"              
