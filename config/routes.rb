@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  POST 'webhooks/uninstall'
+  post 'webhooks/uninstall'
 
   get 'preferences/index'
 
