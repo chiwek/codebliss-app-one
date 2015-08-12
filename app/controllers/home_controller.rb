@@ -42,7 +42,6 @@ class HomeController < ApplicationController
     begin
       shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.shopify_domain)
       if shop.shopify_reccuring_charge_id == nil
-        charge = ShopifyAPI::RecurringApplicationCharge.find(params[:id])
               
         price = 20.0
         plan_name = ShopifyAPI::Shop.current.plan_name
