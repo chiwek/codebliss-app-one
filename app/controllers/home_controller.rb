@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
    init_webhooks
-   #init_payment
+   init_payment
    @charges = ShopifyAPI::RecurringApplicationCharge.all
    
   end
@@ -42,6 +42,7 @@ class HomeController < ApplicationController
     begin
       puts "Starting the payment process"
       shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.domain)
+      raise "Shop invalid: #{shop.errors}" unless shop.valid?
       puts "Found Shop"
       
       if shop.shopify_reccuring_charge_id.nil? || shop.shopify_reccuring_charge_id.empty?
@@ -55,6 +56,7 @@ class HomeController < ApplicationController
         
         puts "Found plan"
         charge = ShopifyAPI::RecurringApplicationCharge.create({:name => "Standard Plan", :price => price, :trial_days => 7, :test => true, :return_url => "http://#{DOMAIN_NAME}/home/payed"})
+        raise "Charge invalid: #{charge.errors}" unless charge.valid?
         redirect_to(charge.confirmation_url)
       end     
     rescue => ex
