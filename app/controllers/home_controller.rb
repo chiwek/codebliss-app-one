@@ -7,6 +7,9 @@ class HomeController < ApplicationController
    init_webhooks
    init_payment
    @charges = ShopifyAPI::RecurringApplicationCharge.all
+   @charges.each do |charge|
+     charge.delete
+   end
    
   end
   
@@ -19,7 +22,7 @@ class HomeController < ApplicationController
     puts charge.status
     
     if charge.status == "accepted" || charge.status == "pending" 
-      shop.shopify_reccuring_charge_id = params[:id]
+      shop.shopify_reccuring_charge_id = params[:charge_id]
       puts "Payed action accepted and saved"
       
     else
