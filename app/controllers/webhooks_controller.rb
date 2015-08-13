@@ -6,7 +6,11 @@ class WebhooksController < ApplicationController
   
   def uninstall
     puts "uninstall fired"
-    puts env["HTTP_X_SHOPIFY_HMAC_SHA256"]
+    data = env["HTTP_X_SHOPIFY_HMAC_SHA256"]
+    puts data
+    puts "secret:"
+    puts ShopifyApp.configure.secret
+    
     
     digest  = OpenSSL::Digest::Digest.new('sha256')
     calculated_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, ShopifyApp.configure.secret, data)).strip
