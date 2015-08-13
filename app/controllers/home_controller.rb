@@ -21,6 +21,7 @@ class HomeController < ApplicationController
     if charge.status == "accepted" || charge.status == "pending" 
       shop.shopify_reccuring_charge_id = params[:id]
       puts "Payed action accepted and saved"
+      
     else
       puts "Payed action not accepted and saved"
       shop.shopify_reccuring_charge_id = nil
@@ -28,6 +29,8 @@ class HomeController < ApplicationController
     
     shop.save!
     puts "Payed action end"
+    
+    redirect_to("http://#{DOMAIN_NAME}/")
   end
   
   def init_webhooks
