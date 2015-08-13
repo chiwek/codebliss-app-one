@@ -15,6 +15,7 @@ class HomeController < ApplicationController
   
   def payed
     
+    
     puts "Payed action started"
     charge = ShopifyAPI::RecurringApplicationCharge.find(params[:charge_id])
     
