@@ -9,7 +9,7 @@ class WebhooksController < ApplicationController
     data = env["HTTP_X_SHOPIFY_HMAC_SHA256"]
     puts data
     puts "secret:"
-    puts ShopifyApp.configure.secret
+    puts ShopifyApp.configuration.secret
     
     
     digest  = OpenSSL::Digest::Digest.new('sha256')
