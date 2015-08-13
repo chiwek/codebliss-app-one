@@ -3,6 +3,8 @@ class WebhooksController < ApplicationController
   
   def uninstall
     puts "uninstall fired"
-    
+    shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.domain)
+    charge = ShopifyAPI::RecurringApplicationCharge.find(shop.shopify_reccuring_charge_id)
+    charge.delete    
   end
 end
