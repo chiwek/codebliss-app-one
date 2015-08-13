@@ -7,9 +7,6 @@ class HomeController < ApplicationController
    init_webhooks
    #init_payment
    @charges = ShopifyAPI::RecurringApplicationCharge.all
-   @charges.each do |key, charge|
-     charge.destroy
-   end
    
   end
   
