@@ -62,6 +62,5 @@ class HomeController < ApplicationController
     rescue => ex
       puts ex.message    
     end
-    charges
   end
 end
