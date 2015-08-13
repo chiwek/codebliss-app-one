@@ -13,7 +13,7 @@ class WebhooksController < ApplicationController
     
     
     digest  = OpenSSL::Digest::Digest.new('sha256')
-    calculated_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, ShopifyApp.configure.secret, data)).strip
+    calculated_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, ShopifyApp.configuration.secret, data)).strip
     verified = calculated_hmac == hmac_header
     
     puts verified
