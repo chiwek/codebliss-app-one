@@ -10,7 +10,7 @@ class WebhooksController < ApplicationController
     shop = Shop.find_or_initialize_by(shopify_domain: ShopifyAPI::Shop.current.domain)
     charge = ShopifyAPI::RecurringApplicationCharge.find(shop.shopify_reccuring_charge_id)
     charge.delete
-    shop.delete
+    shop.destroy
     puts "shop deleted"
         
   end
