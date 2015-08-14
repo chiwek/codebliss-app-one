@@ -39,11 +39,9 @@ class WebhooksController < ApplicationController
     def connect_to_store
 
       shop_url = request.headers['HTTP_X_SHOPIFY_SHOP_DOMAIN']
-      shop_url = ("http://" + shop_url)
+      @s = Shop.find_or_initialize_by(shopify_domain: shop_url)
 
-      @s = Shop.find_by_url(shop_url)
-
-      session = ShopifyAPI::Session.new(@s.url, @s.access_token)
+      session = ShopifyAPI::Session.new(@s.shopify_domain, @s.shopify_token)
       session.valid?
       ShopifyAPI::Base.activate_session(session)
 
